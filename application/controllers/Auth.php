@@ -50,6 +50,7 @@ class Auth extends CI_Controller {
 
                 //jika
                 if ($getallfield['user_akses'] == 1) {
+                  
                    $name =  $getallfield['name'];
                    $usernames =  $getallfield['username'];
                    $this->session->set_userdata('access', 'Admin');
@@ -57,25 +58,58 @@ class Auth extends CI_Controller {
                    $this->session->set_userdata('nama', $name);
                    $this->session->set_userdata('username', $usernames);
                     redirect('Dashboard');
+
+                }elseif ($getallfield['user_akses'] == 2) {
+
+                  $name =  $getallfield['name'];
+                  $usernames =  $getallfield['username'];
+                  $this->session->set_userdata('access', 'admin dua');
+                  $this->session->set_userdata('id', $id);
+                  $this->session->set_userdata('nama', $name);
+                  $this->session->set_userdata('username', $usernames);
+                     redirect('Dashboard');
+
+                }elseif ($getallfield['user_akses'] == 3) {
+
+                  $name =  $getallfield['name'];
+                  $usernames =  $getallfield['username'];
+                  $this->session->set_userdata('access', 'admin tiga');
+                  $this->session->set_userdata('id', $id);
+                  $this->session->set_userdata('nama', $name);
+                  $this->session->set_userdata('username', $usernames);
+                     redirect('Dashboard');
+
+                }elseif ($getallfield['user_akses'] == 4) {
+
+               $name =  $getallfield['name'];
+               $usernames =  $getallfield['username'];
+               $this->session->set_userdata('access', 'admin empat');
+               $this->session->set_userdata('id', $id);
+               $this->session->set_userdata('nama', $name);
+               $this->session->set_userdata('username', $usernames);
+                  redirect('Dashboard');
                 }
-                
-                else {
-                    echo'tidak memiliki hak akses ke page ini';
-                }
-
-
-
                 //jika user_status 0 maka 
               }else {
-                echo'Akun belum aktif';
+               $this->session->set_flashdata('error','Akun Belum Aktif');
+               redirect('Auth/login');
               }
          //jika pass salah/tidak ada
          }else{
-            echo'password salah';
+          $this->session->set_flashdata('error','Password Tidak Valid');
+          redirect('Auth/login');
          }
          //jika username tidak ada
        }else {
-        echo'username tidak ada';
+        $this->session->set_flashdata('error','Username tidak terdaftar');
+        redirect('Auth/login');
        }
+    }
+
+
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('Auth/Login');
     }
 }

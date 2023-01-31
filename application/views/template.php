@@ -35,7 +35,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="" style="color: RGB(245, 245, 245);" class="nav-link">|</a>
+          <a href="" style="color: RGB(245, 245, 245);" class="nav-link"><?= $this->session->userdata('username') ?>|<?= $this->session->userdata('nama') ?></a>
         </li>
       </ul>
 
@@ -92,7 +92,7 @@
 
             <li style="font-style: bold; font-size: bold; color: RGB(245, 245, 245);" class="nav-header">Main </li>
 
-           
+            <?php if ($this->session->userdata('access') == 'Admin') { ?>
 
               <li class="nav-item Active">
                 <a style="color: RGB(245, 245, 245);" href="<?= site_url('Home') ?>" class="nav-link">
@@ -119,13 +119,62 @@
 
                 <ul class="nav nav-treeview ">
                   <li class="nav-item">
-                    <a style="color: RGB(245, 245, 245);" href="<?= site_url('Filter') ?>" class="nav-link">
+                    <a style="color: RGB(245, 245, 245);" href="<?= site_url('emailAttach') ?>" class="nav-link">
                       <i class="far fa-stop-circle nav-icon"></i>
                       <p style="color: RGB(245, 245, 245);"> Data</p>
                     </a>
                   </li>
                 </ul>
             </li>
+            <?php }?>
+            
+
+            <?php if ($this->session->userdata('access') == 'admin dua') { ?>
+            <li class="nav-item Active">
+                <a style="color: RGB(245, 245, 245);" href="<?= site_url('Home') ?>" class="nav-link">
+                  <i class="nav-icon  fas fa-chart-line"></i>
+                  <p style="color: RGB(245, 245, 245);">
+                  Page user 2
+                  </p>
+                </a>
+              </li>
+              <?php }?>
+
+
+              <?php if ($this->session->userdata('access') == 'admin tiga') { ?>
+              <li class="nav-item Active">
+                <a style="color: RGB(245, 245, 245);" href="<?= site_url('Home') ?>" class="nav-link">
+                  <i class="nav-icon  fas fa-chart-line"></i>
+                  <p style="color: RGB(245, 245, 245);">
+                  Page user 3
+                  </p>
+                </a>
+              </li>
+              <?php }?>
+
+
+              <?php if ($this->session->userdata('access') == 'admin empat') { ?>
+              <li class="nav-item Active">
+                <a style="color: RGB(245, 245, 245);" href="<?= site_url('Home') ?>" class="nav-link">
+                  <i class="nav-icon  fas fa-chart-line"></i>
+                  <p style="color: RGB(245, 245, 245);">
+                  Page user 4
+                  </p>
+                </a>
+              </li>
+              <?php }?>
+
+             
+
+              <li class="nav-item">
+              <a style="color: RGB(245, 245, 245);" id="btn-keluar" href="<?= site_url('Auth/Logout') ?>" class="nav-link">
+                <i class="nav-icon fa fa-upload"></i>
+                <p style="color: RGB(245, 245, 245);">
+                  Logout
+                </p>
+              </a>
+            </li>
+
 
 
             

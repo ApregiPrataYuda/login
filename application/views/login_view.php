@@ -20,10 +20,12 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="<?=site_url() ?>assets/backend//index2.html" class="h1"><b>logins</b></a>
+      <a href="<?=site_url() ?>assets/backend//index2.html" class="h1"><b>login</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
+
+        <?php  $this->load->view('pesan')?>
 
       <form action="<?= site_url('Auth/Process')?>" method="post">
 
@@ -56,7 +58,7 @@
       </form>
       <!-- /.social-auth-links -->
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register</a>
+        <a href="register" class="text-center">Register</a>
       </p>
     </div>
     <!-- /.card-body -->
